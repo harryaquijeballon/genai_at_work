@@ -1,0 +1,211 @@
+---
+title: "Economics lens: measuring productivity"
+subtitle: "The same tasks, through the channels the labour-economics literature uses"
+toc: true
+---
+
+::: {.page-intro}
+Labour economics asks how AI changes work through tasks. Does it take a task over (automation)? Does it make the worker more productive in a task the worker keeps (augmentation, or task complementarity)? Does it create work that did not exist before (new tasks)? This page maps the tasks in my log to those channels. The mapping is my interpretation. The literature draws the line between automation and augmentation in two ways, so both readings are shown.
+:::
+
+## The task-based view
+
+[Acemoglu (2025)](https://academic.oup.com/economicpolicy/article-abstract/40/121/13/7728473) sets out four channels through which AI affects production and wages. The other papers this page draws on use the same building blocks.
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart TB
+    ai["Generative AI and agents"] --> auto["Automation<br/>the task moves to the machine"]
+    ai --> comp["Task complementarity<br/>(augmentation)<br/>the worker keeps the task"]
+    ai --> deep["Deepening of automation<br/>automated tasks get cheaper"]
+    ai --> new["New tasks<br/>work that did not exist"]
+    auto --> tfp["Productivity (TFP)"]
+    comp --> tfp
+    deep --> tfp
+    new --> tfp
+```
+
+All four raise productivity, but they act on jobs differently. Automation displaces labour from tasks; complementarity and new tasks raise the demand for it (Acemoglu 2025). Deepening concerns tasks that machines already do, so it does not appear in my log.
+
+| Channel | Definition in the literature | Tasks in my log |
+|---|---|---|
+| **Automation** | AI takes over a task, which is then done "without labor" (Acemoglu 2025; Oleš and Roncone 2026, p. 5). | **The research radar and the news radar.** They run every day without me. The tasks logged for them are my time building and supervising that automation. |
+| **Augmentation** (task complementarity) | AI raises the worker's productivity in a task the worker keeps, including by automating subtasks (Acemoglu 2025); it improves "capabilities, quality, variety, or utility of outputs" (Marguerit 2025, p. 2). | *Substitution* tasks (same task, less of my time) and *quality* tasks (same time, better result). |
+| **New tasks** | New labour-intensive tasks or products (Acemoglu 2025); "new work" (Marguerit 2025, p. 8). | *Expansion* tasks: work that would not exist without AI. |
+| **Skills** | Not a separate channel in these papers: Acemoglu places expertise-building inside complementarity. | *Learning* tasks, shown separately because their value comes later. |
+
+**The boundary that matters.** When an agent writes most of a document and I direct and review it, is that automation or augmentation? Under Acemoglu's and Oleš and Roncone's definitions it is augmentation: the task still uses my labour and I remain responsible for it, as with the radiologist who uses AI "while retaining responsibility for the diagnosis" (Oleš and Roncone 2026, p. 1). The Anthropic Economic Index draws the line by interaction instead: work handed over with little back-and-forth counts as automation (Handa et al. 2025). The **broad** reading below follows that idea. It counts routine, well-specified work I delegated (coding, data analysis, writing, admin) as automation of subtasks.
+
+## My tasks by channel
+
+```{ojs}
+//| echo: false
+all = FileAttachment("data/entries.json").json()
+usage = FileAttachment("data/usage.json").json()
+summary = FileAttachment("data/summary.json").json()
+entries = all.filter(d => d.valued)
+viewof reading = Inputs.radio(new Map([["Strict: Acemoglu (2025)", "channel"], ["Broad: delegation, as in the Anthropic Economic Index", "channel_broad"]]), {value: "channel", label: "Definition"})
+viewof measure = Inputs.radio(new Map([["Tasks", "count"], ["My hours", "hours"]]), {value: "count", label: "Measure"})
+channels = ["Automation", "Augmentation", "New tasks", "Skills"]
+channelColours = ["#b4463c", "#005da8", "#008c95", "#5a8f29"]
+rowsC = entries.map(d => ({...d, ch: d[reading]}))
+monthName = m => d3.utcFormat("%b %Y")(new Date(m + "-01"))
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  marginLeft: 100, height: 200, width: 720,
+  x: {label: measure === "count" ? "Tasks" : "My hours", grid: true},
+  y: {label: null, domain: channels},
+  color: {domain: channels, range: channelColours},
+  marks: [
+    measure === "count"
+      ? Plot.barX(rowsC, Plot.groupY({x: "count"}, {y: "ch", fill: "ch", tip: true}))
+      : Plot.barX(rowsC, Plot.groupY({x: "sum"}, {y: "ch", x: "hours_actual", fill: "ch", tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 280, width: 720,
+  x: {label: null, type: "band", tickFormat: monthName},
+  y: {label: measure === "count" ? "Tasks" : "My hours", grid: true},
+  color: {domain: channels, range: channelColours, legend: true},
+  marks: [
+    measure === "count"
+      ? Plot.barY(rowsC, Plot.groupX({y: "count"}, {x: "month", fill: "ch", tip: true}))
+      : Plot.barY(rowsC, Plot.groupX({y: "sum"}, {x: "month", y: "hours_actual", fill: "ch", tip: true})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+::: {.chart-note}
+The tasks I valued in the weekly log, 10 September to 6 November 2026. Switch the definition to see how much of the picture depends on where the line is drawn. <span class="status interpretation">interpretation</span>
+:::
+
+**What the split shows.** Under the strict definition, new tasks and augmentation each account for about two fifths of my tasks. New tasks are work that would not have been done at all, and the channel Acemoglu (2025) finds hardest to put numbers on, so estimates built on time savings alone miss them. Automation, the radars, makes up most of the rest. Under the broad definition, much of the augmentation becomes automation of delegated subtasks.
+
+## Time saved, in the literature's terms
+
+For augmentation tasks that would have happened anyway, the log records the hours with AI and an estimate of the hours without it. That is close to the question Bick, Blandin and Deming (2025, p. 25) ask US workers: "how many additional hours of work would you have needed to complete the same amount of work?" <span class="status reported">self-reported estimates</span>
+
+```{ojs}
+//| echo: false
+subs = entries.filter(d => d.value_type === "substitution" && d.hours_counterfactual !== null)
+low = subs.filter(d => d.confidence === "high" && d.logged !== "backfilled")
+saving = a => 1 - d3.sum(a, d => d.hours_actual) / d3.sum(a, d => d.hours_counterfactual)
+html`<div class="tiles">
+  <div class="tile gold"><div class="value">${d3.format(".0%")(saving(subs))}</div><div class="label">of the time these ${subs.length} tasks would have taken was saved (${d3.format(".0%")(saving(low))} on the ${low.length} tasks in the cautious figure)</div></div>
+  <div class="tile"><div class="value">27%</div><div class="label">average labour-cost saving per affected task that Acemoglu (2025) takes from experimental studies</div></div>
+  <div class="tile"><div class="value">5.4%</div><div class="label">of their work hours saved, on average, by US workers who use generative AI (Bick et al. 2025)</div></div>
+</div>`
+```
+
+These figures are not like for like:
+
+- **Mine is a saving per task,** on tasks I chose to do with an agent.
+- **Acemoglu's 27% is a saving per affected task,** taken from experiments with chatbots (writing and customer support) rather than agents.
+- **Bick et al.'s 5.4% is a share of all of a user's work hours,** including hours spent on tasks AI does not touch.
+
+The direction is still informative. On the tasks it reaches, an agent that can read files, run code and check its own work saves about twice the per-task cost saving in Acemoglu's estimate. Acemoglu (2025) expects smaller gains on hard tasks without a clear success measure. Much of my work is of that kind, so these figures are evidence on that question, though from a single worker. <span class="status interpretation">interpretation</span>
+
+## Where automation happens
+
+```{ojs}
+//| echo: false
+html`<div class="tiles">
+  <div class="tile"><div class="value" style="color:#b4463c">${summary.radar_runs_successful}</div><div class="label">successful unattended runs of the two radars, ${d3.utcFormat("%-d %b")(new Date(summary.radar_runs_first))} to ${d3.utcFormat("%-d %b %Y")(new Date(summary.radar_runs_as_of))} (${summary.radar_runs_scheduled} scheduled) <span class="status measured">measured</span></div></div>
+</div>`
+```
+
+The research radar and the team's news radar run every day on a schedule, with no one involved. Each reads its sources, verifies and archives what it finds, and writes a report. No one did that work by hand before, so it is automation and task creation at once: new tasks performed by machines. Runs that fail stop without publishing anything, by design.
+
+## How much I delegate: a measured proxy
+
+The Anthropic Economic Index classes interactions as automation when work is handed over with little back-and-forth, and as augmentation when the person iterates, learns or validates (Handa et al. 2025). My session logs allow a measured, if rough, version. <span class="status measured">measured</span>
+
+**How to read the chart.** The vertical axis shows how much the agent did for each message I sent. A low value means a conversation: I ask, it answers, I check. A high value means delegation: I hand over a job and the agent carries it out, reading files, running code and searching the web, step after step.
+
+```{ojs}
+//| echo: false
+series = [
+  {key: "All work", test: d => true},
+  {key: "MVNO study (gsma-c)", test: d => d.project === "gsma-c"},
+  {key: "Tariff data pipeline (gsma-f)", test: d => d.project === "gsma-f"}
+]
+monthly = series.flatMap(s => Array.from(d3.rollup(usage.filter(s.test), v => ({turns: d3.sum(v, d => d.human_turns), actions: d3.sum(v, d => d.tool_calls)}), d => d.date.slice(0, 7)),
+  ([month, v]) => ({month, series: s.key, ...v, ratio: v.actions / Math.max(v.turns, 1)})))
+  .filter(d => d.month >= "2026-08").sort((a, b) => a.month.localeCompare(b.month))
+Plot.plot({
+  height: 300, width: 720,
+  x: {label: null, type: "point", tickFormat: monthName, padding: 0.4},
+  y: {label: "Agent actions per message from me", grid: true},
+  color: {legend: true, domain: series.map(s => s.key), range: ["#17202a", "#008c95", "#005da8"]},
+  marks: [
+    Plot.line(monthly, {x: "month", y: "ratio", stroke: "series", strokeWidth: d => d.series === "All work" ? 3 : 2}),
+    Plot.dot(monthly, {x: "month", y: "ratio", fill: "series", r: 5, tip: true,
+      title: d => `${monthName(d.month)} · ${d.series}\n${d3.format(",")(d.actions)} agent actions / ${d3.format(",")(d.turns)} messages\n= ${d3.format(".1f")(d.ratio)} per message`}),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+::: {.chart-note}
+From August, the first full month of surviving logs; November covers 1 to 8 November. Actions include those of helper agents the main agent starts, which is why the tariff pipeline, running many agents in parallel, reaches the highest values.
+:::
+
+Across all my work, delegation rose from about 3 agent actions per message in August to about 20 in October. The work moved from asking questions to handing over jobs, towards automation in the broad sense. The tariff pipeline, built to run agents at scale, sits far above the rest. In the MVNO study, delegation rose sharply in November, during the agents' data collection across markets. This measures *how* I work, not the economic channel: Anthropic's own analysis of agentic coding warns that "the boundary between automation and augmentation becomes increasingly blurred with agentic tools", and the reviewing I do outside a session does not show in it. <span class="status interpretation">interpretation</span>
+
+## What the literature finds, and what I find
+
+::: {.cards}
+::: {.card-box}
+[Adoption, US]{.kind}
+
+23% of employed US adults used generative AI for work in the week before the survey. Users save 5.4% of their work hours on average, 1.4% of all hours worked, implying a potential productivity gain of about 1.1% (Bick, Blandin and Deming 2025).
+:::
+
+::: {.card-box}
+[Macroeconomics]{.kind}
+
+No more than a 0.66% rise in TFP over ten years, or 0.53% allowing for harder tasks. The gains come from automation and complementarity; new tasks could add more but are hard to measure (Acemoglu 2025).
+:::
+
+::: {.card-box}
+[Automation versus augmentation]{.kind}
+
+The two channels pull in opposite directions. In US local labour markets, a one standard deviation rise in AI automation cuts occupational employment by 21%; the same rise in AI augmentation raises wages by 8% (Oleš and Roncone 2026).
+:::
+
+::: {.card-box}
+[Exposure, UK]{.kind}
+
+94% of UK jobs have some exposure to generative AI and 13% high exposure. Job postings in exposed occupations were about 5.5% lower in 2025-Q2 than pre-ChatGPT trends imply (Henseke et al. 2025).
+:::
+
+```{ojs}
+//| echo: false
+html`<div class="card-box" style="border:2px solid #f2b705;background:#fffdf3">
+  <div class="kind" style="font-size:0.8rem;color:#5d6d7e;text-transform:uppercase;letter-spacing:0.04em">My evidence, one economist</div>
+  <p style="margin-top:0.5rem">On tasks that would have happened anyway, the agent saved about <b>${d3.format(".0%")(saving(subs))}</b> of the time, roughly twice the per-task saving in Acemoglu's estimate. <b>${d3.format(".0%")(entries.filter(d => d.value_type === "expansion").length / entries.length)}</b> of my tasks would not exist without AI, the radars included. Delegation rose from about 3 to about 20 agent actions per message between August and October. Quality averaged <b>${d3.format(".1f")(d3.mean(entries.filter(d => d.quality !== null), d => d.quality))}</b> against my own standard of 3, with <b>${d3.format(".0%")(d3.sum(entries, d => d.rework_hours ?? 0) / d3.sum(entries, d => d.hours_actual))}</b> of my time spent on rework.</p>
+</div>`
+```
+:::
+
+## References and further reading
+
+- Acemoglu, D. (2025). The Simple Macroeconomics of AI. *Economic Policy* 40(121). [Link](https://academic.oup.com/economicpolicy/article-abstract/40/121/13/7728473). Read in its 2024 working-paper version (MIT); page references on this site are omitted for that reason.
+- Anthropic (2025). *Anthropic Economic Index: AI's impact on software development*. 28 April 2025.
+- Bick, A., Blandin, A. and Deming, D. J. (2025). *The Rapid Adoption of Generative AI*. NBER Working Paper 32966.
+- Calvino, F., Dernis, H., Samek, L. and Ughi, A. (2024). *A sectoral taxonomy of AI intensity*. OECD Artificial Intelligence Papers No. 30.
+- Guarascio, D., Reljic, J. and Stöllinger, R. (2025). Diverging paths: AI exposure and employment across European regions. *Structural Change and Economic Dynamics* 73, 11–24.
+- Handa, K. et al. (2025). *Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations*. arXiv:2503.04761.
+- Hashem, Y., Bright, J. et al. (2025). *Mapping the Potential: Generative AI and Public Sector Work*. The Alan Turing Institute.
+- Henseke, G., Davies, R., Felstead, A., Gallie, D., Green, F. and Zhou, Y. (2025). *How Exposed Are UK Jobs to Generative AI? Developing and Applying a Novel Task-Based Index*. arXiv:2507.22748.
+- Marguerit, D. (2025). *Augmenting or Automating Labor? The Effect of AI Development on New Work, Employment, and Wages*. arXiv:2503.19159.
+- Oleš, T. and Roncone, F. (2026). *The Labor Market Effects of AI Automation and Augmentation*. GLO Discussion Paper No. 1821.

@@ -1,0 +1,233 @@
+:root {
+  --gsma-ink: #17202a;
+  --gsma-blue: #005da8;
+  --gsma-teal: #008c95;
+  --gsma-green: #5a8f29;
+  --gsma-gold: #f2b705;
+  --soft-blue: #eef6fb;
+  --soft-teal: #edf9f8;
+  --soft-gold: #fff8dd;
+  --line: #d9e2ec;
+  --muted: #5d6d7e;
+}
+
+body {
+  color: var(--gsma-ink);
+  background: #fbfcfd;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 14px rgba(23, 32, 42, 0.06);
+}
+
+.navbar-title {
+  font-weight: 700;
+}
+
+.quarto-title-block .title {
+  font-weight: 760;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: #163f5f;
+}
+
+h3 {
+  color: #1d5965;
+}
+
+main a {
+  color: var(--gsma-blue);
+}
+
+/* Opening paragraph of each page */
+.page-intro {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 5px solid var(--gsma-teal);
+  background: var(--soft-teal);
+  color: #193b3f;
+  font-size: 1.05rem;
+}
+
+/* Reflection prompt at the end of each day */
+.reflect {
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 5px solid var(--gsma-gold);
+  background: var(--soft-gold);
+}
+
+/* One block per contributor on the resources page. "## Name {.contributor}"
+   puts the class on both the section and its heading; only the section is boxed. */
+section.contributor {
+  margin: 2rem 0;
+  padding: 0.25rem 1.25rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.contributor .role {
+  color: var(--muted);
+  margin-top: -0.5rem;
+}
+
+blockquote {
+  border-left: 5px solid var(--gsma-green);
+  background: #f4f9ef;
+  padding: 0.8rem 1rem;
+  color: #34472b;
+}
+
+table {
+  background: #ffffff;
+}
+
+thead th {
+  background: var(--soft-blue);
+}
+
+/* Day schedule tables: keep the time column narrow */
+.schedule td:first-child {
+  white-space: nowrap;
+  width: 8rem;
+}
+
+@media (max-width: 700px) {
+  section.contributor {
+    padding: 0.25rem 0.85rem 0.75rem;
+  }
+
+  .schedule td:first-child {
+    width: auto;
+  }
+}
+
+/* --- Report additions ----------------------------------------------------- */
+
+/* Headline figures */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.tile {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gsma-blue);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.tile.teal { border-top-color: var(--gsma-teal); }
+.tile.gold { border-top-color: var(--gsma-gold); }
+.tile.green { border-top-color: var(--gsma-green); }
+
+.tile .value {
+  font-size: 1.7rem;
+  font-weight: 760;
+  line-height: 1.1;
+  color: #163f5f;
+}
+
+.tile .label {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Epistemic-status label next to a figure or chart */
+.status {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.status.measured { background: var(--soft-blue); color: var(--gsma-blue); }
+.status.reported { background: var(--soft-gold); color: #7a5b00; }
+.status.interpretation { background: var(--soft-teal); color: #1d5965; }
+
+/* Sceptic's case and caveats */
+.sceptic {
+  margin: 1.25rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 5px solid #b4463c;
+  background: #fbefee;
+  color: #4a1f1b;
+}
+
+/* System cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.card-box {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.card-box h4 {
+  margin-top: 0;
+  color: #163f5f;
+  font-size: 1.05rem;
+}
+
+.card-box .kind {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chart-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: -0.5rem;
+}
+
+/* Hover definitions (a small glossary) */
+.term {
+  border-bottom: 1px dotted var(--muted);
+  cursor: help;
+  position: relative;
+}
+
+.term:hover::after,
+.term:focus::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  top: 1.6em;
+  z-index: 20;
+  width: 17rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+  background: #17202a;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.35;
+  text-transform: none;
+  letter-spacing: normal;
+  box-shadow: 0 4px 14px rgba(23, 32, 42, 0.25);
+}
+
+.tile .period {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}

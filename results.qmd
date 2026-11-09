@@ -1,0 +1,230 @@
+---
+title: "Results"
+subtitle: "The log in its own terms"
+toc: true
+---
+
+::: {.page-intro}
+Every task done with an agent is one entry in the log, with the type of value it created, the kind of work, my hours, an estimate of the hours it would have taken without AI, a quality score and the outcome. The charts on this page use the tasks I valued in the weekly log, from 10 September 2026. Earlier work appears only in the usage chart at the end.
+:::
+
+```{ojs}
+//| echo: false
+all = FileAttachment("data/entries.json").json()
+usage = FileAttachment("data/usage.json").json()
+rows = all.filter(d => d.valued)
+valueTypes = ["substitution", "expansion", "quality", "learning"]
+valueColours = ["#005da8", "#008c95", "#f2b705", "#5a8f29"]
+valueLabel = ({substitution: "Substitution: same task, less time", expansion: "Expansion: work that would not exist", quality: "Quality: same time, better result", learning: "Learning: know-how"})
+nice = s => s ? (s.charAt(0).toUpperCase() + s.slice(1)).replace(/_/g, " ") : s
+monthName = m => d3.utcFormat("%b %Y")(new Date(m + "-01"))
+truncate = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s
+```
+
+## The type of value created
+
+Each task is classed by what AI changed. **Substitution**: the task would have been done anyway, and AI changed the time it took. **Expansion**: the work would not exist without AI. **Quality**: same time, better result. **Learning**: the main value is know-how. <span class="status reported">my judgement</span>
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  marginLeft: 110, height: 190, width: 720,
+  x: {label: "Tasks", grid: true},
+  y: {label: null, domain: valueTypes, tickFormat: nice},
+  color: {domain: valueTypes, range: valueColours},
+  marks: [
+    Plot.barX(rows, Plot.groupY({x: "count"}, {y: "value_type", fill: "value_type", tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+## My time, month by month
+
+Hours I spent on each task, including prompting, reading and reviewing, by the month the task finished. Hover over a bar for the number of tasks. <span class="status reported">self-reported</span>
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 300, width: 720,
+  x: {label: null, type: "band", tickFormat: monthName},
+  y: {label: "Hours", grid: true},
+  color: {domain: valueTypes, range: valueColours, legend: true, tickFormat: d => valueLabel[d]},
+  marks: [
+    Plot.barY(rows, Plot.groupX({y: "sum", title: v => `${v.length} tasks, ${d3.sum(v, d => d.hours_actual)} h`},
+      {x: "month", y: "hours_actual", fill: "value_type", tip: true})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+::: {.chart-note}
+September covers 10 to 30 September; November covers 1 to 6 November.
+:::
+
+## The kind of work
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  marginLeft: 120, height: 280, width: 720,
+  x: {label: "Tasks", grid: true},
+  y: {label: null, tickFormat: nice},
+  color: {domain: valueTypes, range: valueColours, legend: true, tickFormat: d => valueLabel[d]},
+  marks: [
+    Plot.barX(rows, Plot.groupY({x: "count"}, {y: "category", fill: "value_type", sort: {y: "-x"}, tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+## Time saved on work that would have happened anyway
+
+For each substitution task: my hours with AI (dot) and my estimate of the hours without it (ring). The gap is the time saved. <span class="status reported">self-reported estimates</span>
+
+```{ojs}
+//| echo: false
+subs = rows.filter(d => d.value_type === "substitution" && d.hours_counterfactual !== null)
+  .map(d => ({...d, label: `${d.date.slice(5)} · ${truncate(d.title.replace(/^Project /, ""), 46)}`, lower: d.confidence === "high" && d.logged !== "backfilled"}))
+saved = ({raw: d3.sum(subs, d => d.hours_counterfactual - d.hours_actual), lower: d3.sum(subs.filter(d => d.lower), d => d.hours_counterfactual - d.hours_actual)})
+html`<div class="tiles">
+  <div class="tile gold"><div class="value">${d3.format(".1f")(d3.sum(subs, d => d.hours_counterfactual) / d3.sum(subs, d => d.hours_actual))}×</div><div class="label">hours the work would have taken without AI, for each hour it took with AI</div></div>
+  <div class="tile gold"><div class="value">${saved.raw} h</div><div class="label">saved on ${subs.length} tasks</div></div>
+  <div class="tile gold"><div class="value">${saved.lower} h</div><div class="label">cautious figure: only the ${subs.filter(d => d.lower).length} tasks where I was highly confident in my estimate and wrote it down within a week of the work</div></div>
+</div>`
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  marginLeft: 330, height: Math.max(200, 22 * subs.length + 40), width: 720, style: {fontSize: "11px"},
+  x: {label: "Hours", grid: true},
+  y: {label: null, domain: subs.map(d => d.label)},
+  marks: [
+    Plot.link(subs, {x1: "hours_actual", x2: "hours_counterfactual", y: "label", stroke: "#9fb3c8"}),
+    Plot.dot(subs, {x: "hours_counterfactual", y: "label", r: 5, stroke: "#005da8", fill: d => d.lower ? "#005da8" : "white", tip: true,
+      title: d => `${d.title}\nwith AI: ${d.hours_actual} h\nwithout AI (estimate): ${d.hours_counterfactual} h\nconfidence: ${d.confidence}, logged ${d.logged === "at_time" ? "within a week" : "later"}`}),
+    Plot.dot(subs, {x: "hours_actual", y: "label", r: 4, fill: "#17202a"})
+  ]
+})
+```
+
+::: {.chart-note}
+Filled rings are the tasks in the cautious figure.
+:::
+
+## Work that would not exist without AI
+
+Expansion tasks have no time-saved figure: there is no version of the work done without AI to compare with. These are simply the hours I put into work that would not have happened otherwise. <span class="status reported">self-reported</span>
+
+```{ojs}
+//| echo: false
+exp = rows.filter(d => d.value_type === "expansion")
+expQ = exp.filter(d => d.quality !== null)
+html`<div class="tiles">
+  <div class="tile teal"><div class="value">${d3.sum(exp, d => d.hours_actual)} h</div><div class="label">of my time on ${exp.length} expansion tasks</div></div>
+  <div class="tile teal"><div class="value">${d3.format(".0%")(d3.sum(exp, d => d.hours_actual) / d3.sum(rows, d => d.hours_actual))}</div><div class="label">of all my logged hours</div></div>
+  <div class="tile teal"><div class="value">${d3.format(".1f")(d3.mean(expQ, d => d.quality))}</div><div class="label">mean quality of these tasks (3 = my own unaided standard)</div></div>
+</div>`
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 260, width: 720,
+  x: {label: null, type: "band", tickFormat: monthName},
+  y: {label: "Hours", grid: true},
+  color: {domain: ["substitution", "expansion"], range: ["#005da8", "#008c95"], legend: true, tickFormat: d => valueLabel[d]},
+  marks: [
+    Plot.barY(rows.filter(d => d.value_type === "substitution" || d.value_type === "expansion"),
+      Plot.groupX({y: "sum"}, {x: "month", y: "hours_actual", fill: "value_type", tip: true})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+## Quality and rework
+
+Quality is scored against my own unaided standard: 1 is clearly worse, 3 the same, 5 clearly better. Rework is the part of my time spent fixing the agent's output. <span class="status reported">self-reported</span>
+
+```{ojs}
+//| echo: false
+q = rows.filter(d => d.quality !== null)
+rw = rows.filter(d => d.rework_hours !== null)
+html`<div class="tiles">
+  <div class="tile"><div class="value">${d3.format(".1f")(d3.mean(q, d => d.quality))}</div><div class="label">mean quality, ${q.length} tasks</div></div>
+  <div class="tile"><div class="value">${d3.format(".0%")(d3.sum(rw, d => d.rework_hours) / d3.sum(rw, d => d.hours_actual))}</div><div class="label">of my time was rework (${d3.sum(rw, d => d.rework_hours)} of ${d3.sum(rw, d => d.hours_actual)} h)</div></div>
+  <div class="tile"><div class="value">${rw.filter(d => d.rework_hours > 0).length} of ${rw.length}</div><div class="label">tasks needed some rework</div></div>
+</div>`
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 220, width: 720,
+  x: {label: "Quality score (3 = my own unaided standard)", domain: [1, 2, 3, 4, 5], type: "band"},
+  y: {label: "Tasks", grid: true},
+  marks: [
+    Plot.barY(q, Plot.groupX({y: "count"}, {x: "quality", fill: "#005da8", tip: true})),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+## Outcomes and shortfalls
+
+```{ojs}
+//| echo: false
+outcomeOrder = ["exceeded", "met", "below_expectation", "abandoned"]
+Plot.plot({
+  marginLeft: 130, height: 170, width: 720,
+  x: {label: "Tasks", grid: true},
+  y: {label: null, domain: outcomeOrder, tickFormat: nice},
+  color: {domain: outcomeOrder, range: ["#5a8f29", "#008c95", "#b4463c", "#7b241c"]},
+  marks: [
+    Plot.barX(rows, Plot.groupY({x: "count"}, {y: "outcome", fill: "outcome", tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+short = rows.filter(d => d.outcome === "below_expectation" || d.outcome === "abandoned" || (d.rework_hours ?? 0) >= 2)
+Inputs.table(short, {
+  columns: ["date", "title", "outcome", "hours_actual", "rework_hours"],
+  header: {date: "Date", title: "Task", outcome: "Outcome", hours_actual: "Hours", rework_hours: "Rework"},
+  format: {outcome: d => nice(d) + "", title: d => truncate(d.replace(/^Project /, ""), 60)},
+  width: {date: 92, outcome: 140, hours_actual: 55, rework_hours: 60},
+  layout: "auto",
+  rows: 12
+})
+```
+
+::: {.chart-note}
+Shortfalls, and tasks with two or more hours of rework.
+:::
+
+## How intensively the agent was used
+
+Measured from the agent's session logs since 22 July 2026. A message is one message from me; an <span class="term" tabindex="0" data-tip="One thing the agent did on its own: reading a file, running code, searching the web, editing a document.">agent action</span> is one tool call by the agent. This chart includes the work before the weekly log began. <span class="status measured">measured</span>
+
+```{ojs}
+//| echo: false
+weekly = Array.from(d3.rollup(usage, v => ({turns: d3.sum(v, d => d.human_turns), actions: d3.sum(v, d => d.tool_calls)}),
+  d => d3.utcMonday.floor(new Date(d.date))), ([week, v]) => ({week, ...v})).sort((a, b) => a.week - b.week)
+Plot.plot({
+  height: 260, width: 720, marginLeft: 55,
+  x: {label: null, type: "utc", ticks: "month", tickFormat: "%b %Y"},
+  y: {label: "Agent actions per week", grid: true},
+  marks: [
+    Plot.rectY(weekly, {x1: "week", x2: d => d3.utcDay.offset(d.week, 6), y: "actions", fill: "#005da8", fillOpacity: 0.85, tip: true,
+      title: d => `Week of ${d3.utcFormat("%d %b")(d.week)}\n${d3.format(",")(d.actions)} agent actions\n${d3.format(",")(d.turns)} messages from me\n${d3.format(".0f")(d.actions / Math.max(d.turns, 1))} actions per message`}),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+::: {.chart-note}
+22 July to 8 August reflects only the sessions whose logs survived (see [method](method.qmd)). The week of 19 October is low because I was at a conference in Riga from Tuesday to Friday. The peak in the week of 26 October is the data-extraction pipeline running many agents in parallel. Actions include those of helper agents the main agent starts. <span class="status interpretation">interpretation</span>
+:::

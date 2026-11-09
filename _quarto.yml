@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - results.qmd
+    - lens.qmd
+    - systems.qmd
+    - method.qmd
+  resources:
+    - data/*.json
+
+website:
+  title: "Generative AI at Work"
+  description: "Generative AI at Work in the Economics Team: Harry's evidence."
+  navbar:
+    left:
+      - text: "About"
+        href: index.qmd
+      - text: "Results"
+        href: results.qmd
+      - text: "Economics lens: measuring productivity"
+        href: lens.qmd
+      - text: "Systems built"
+        href: systems.qmd
+      - text: "Method and caveats"
+        href: method.qmd
+  page-footer:
+    left: "Generative AI at Work in the Economics Team · GSMA Intelligence · November 2026"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-location: right
+    smooth-scroll: true
+    link-external-newwindow: true
+    page-layout: article
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">

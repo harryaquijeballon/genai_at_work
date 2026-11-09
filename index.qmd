@@ -1,0 +1,78 @@
+---
+title: "Generative AI at Work in the Economics Team"
+subtitle: "Harry's evidence, June to November 2026"
+toc: true
+---
+
+::: {.page-intro}
+Since June 2026 I have used Claude Code, an AI agent that reads files, runs code and writes documents, in my work as an economist at GSMA Intelligence. This site reports what I have done with it, what it was worth, and where it fell short, from a log I keep as I work.
+:::
+
+## Why keep this record
+
+1. **To record the AI work itself.** Expanding the team's AI capability is one of my objectives. The log records every piece of work done with an agent: what it was, how long it took, and how good the result was.
+2. **To build a repository of AI-engineering knowledge.** Each project records what it learned about building with AI agents: what worked, what failed, and which checks made the agents' output trustworthy. Those lessons are saved, tested on the next project and turned into a playbook, so that my ability to build AI products improves with each one.
+3. **To measure AI at work, as an economist would.** The economics of AI asks how it changes tasks, productivity and jobs. My own work is a small, well-documented case: each task is logged with the time it took, an estimate of the time it would have taken without AI, and a quality score.
+4. **To share what works with the team.** The aim is to help the team judge where agents add value, and where they do not, before deciding how to use them.
+
+## In numbers
+
+```{ojs}
+//| echo: false
+summary = FileAttachment("data/summary.json").json()
+fmt = d3.format(",")
+day = s => d3.utcFormat("%-d %b")(new Date(s))
+tip = (text, definition) => `<span class="term" tabindex="0" data-tip="${definition}">${text}</span>`
+html`<div class="tiles">
+  <div class="tile"><div class="value">${summary.valued_entries}</div>
+    <div class="label">${tip("tasks", "One task is one finished piece of work done with the agent, logged with my hours, an estimate of the hours without AI, a quality score and the outcome.")} with my hours and assessment</div>
+    <div class="period">${day(summary.valued_first)} to ${day(summary.valued_last)}</div></div>
+  <div class="tile"><div class="value">${fmt(summary.hours_actual_logged)} h</div>
+    <div class="label">my time on those tasks</div>
+    <div class="period">${day(summary.valued_first)} to ${day(summary.valued_last)}</div></div>
+  <div class="tile gold"><div class="value">${summary.hours_saved_lower_bound}–${summary.hours_saved_raw} h</div>
+    <div class="label">${tip("saved", "On tasks that would have been done anyway: my estimate of the hours without AI, minus the hours with it. The lower figure counts only estimates I was highly confident in and wrote down within a week of the work.")} on ${summary.substitution_with_numbers} tasks that would have been done anyway</div>
+    <div class="period">${day(summary.valued_first)} to ${day(summary.valued_last)}</div></div>
+  <div class="tile teal"><div class="value">${fmt(summary.expansion_hours)} h</div>
+    <div class="label">on ${summary.expansion_tasks} ${tip("tasks that would not exist without AI", "Expansion: work I would not have done at all without an agent. It has no time-saved figure, because there is nothing to compare it with.")}</div>
+    <div class="period">${day(summary.valued_first)} to ${day(summary.valued_last)}</div></div>
+  <div class="tile green"><div class="value">${fmt(summary.usage_tool_calls)}</div>
+    <div class="label">${tip("agent actions", "An agent action (tool call) is one thing the agent did on its own: reading a file, running code, searching the web, editing a document. Counted from the agent's session logs.")} <span class="status measured">measured</span></div>
+    <div class="period">${day(summary.usage_first_day)} to ${day(summary.usage_last_day)}</div></div>
+  <div class="tile green"><div class="value">${summary.radar_runs_successful}</div>
+    <div class="label">${tip("unattended runs", "Daily runs of the two radars on a schedule, with no one involved: each reads its sources, checks and archives what it finds, and writes a report. Counted from GitHub.")} of the two radars <span class="status measured">measured</span></div>
+    <div class="period">${day(summary.radar_runs_first)} to ${day(summary.radar_runs_as_of)}</div></div>
+</div>`
+```
+
+**Why the periods differ.** I have used the agent since June. The agent deletes its session records after 30 days unless a session is reopened. I first saved them on 8 September, so usage before about 9 August survives only for sessions I reopened later; the oldest is from 22 July. June and most of July are not recorded. Since 8 September everything is kept. My hours and assessments come from the weekly log, which started on 25 September; the first tasks in it date from 10 September. Work from June to early September appears on this site only as measured usage, not as valued tasks.
+
+Hours, time saved and quality are my own estimates; usage and radar runs are measured. Each figure is labelled on the results pages.
+
+## How the evidence is collected
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart TB
+    work["Work with an AI agent"] --> logs["Session logs<br/>measured: days, messages, agent actions"]
+    work --> weekly["Weekly log, every Friday<br/>one row per finished task"]
+    logs --> weekly
+    weekly --> judge["My judgement per task<br/>hours, hours without AI,<br/>quality, rework, outcome"]
+    judge --> ledger["Validated evidence log<br/>one entry per task"]
+    ledger --> views["Views: this report,<br/>quarterly reviews"]
+    projects["Each project's weekly<br/>lessons on building with agents"] --> kb["Knowledge base and<br/>playbook for new projects"]
+```
+
+- **Scripts do the counting.** Usage figures come from the agent's session logs, and the weekly table is built by script.
+- **I supply every judgement.** Hours, quality and outcome are mine, entered in a spreadsheet each week. Nothing is estimated by the agent.
+- **Failures count.** Shortfalls, rework and below-expectation results are logged as they happen and reported here.
+- **Lessons travel.** Each project writes down what it has learned about building with agents, and those lessons are distilled into a playbook any new project can start from.
+
+## What is on this site
+
+| Page | What it shows |
+|---|---|
+| [Results](results.qmd) | The log in its own terms: time, type of value, kind of work, time saved, work that would not exist without AI, quality, rework, shortfalls, and how intensively the agent was used. |
+| [Economics lens: measuring productivity](lens.qmd) | The same tasks mapped to the channels the labour-economics literature uses: automation, augmentation and new tasks. |
+| [Systems built](systems.qmd) | The AI systems and methods built along the way, and how they are made trustworthy. |
+| [Method and caveats](method.qmd) | Definitions, the status of each figure, and the strongest case against these results. |

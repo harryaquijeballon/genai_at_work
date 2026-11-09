@@ -1,0 +1,51 @@
+---
+title: "Method and caveats"
+subtitle: "What each figure is, and the case against it"
+toc: true
+---
+
+::: {.page-intro}
+This is a record of one economist's work, kept as the work happened. It is evidence of what an AI agent did in that work, not an estimate of its effect on the team or the industry. Each figure on this site is labelled by where it comes from.
+:::
+
+## Where the figures come from
+
+| Label | Source | Examples |
+|---|---|---|
+| <span class="status measured">measured</span> | The agent's session logs, extracted by script | days of use, my turns, agent actions (tool calls), tokens |
+| <span class="status reported">self-reported</span> | My judgement, entered each week in a spreadsheet and validated by script | hours with AI, hours without AI, confidence, quality, rework, outcome |
+| <span class="status interpretation">interpretation</span> | A mapping or reading of the above | the economics-lens channels, the comments under the charts |
+
+- **The unit is the task.** One entry per finished piece of work, across all projects.
+- **Hours with AI** include prompting, reading and reviewing the agent's work.
+- **Hours without AI** are my estimate of the same task done to the same standard by hand. They are given only for substitution tasks. Expansion tasks have none, because the work would not have been done: their hours are reported as they are.
+- **Confidence** in each estimate is mine: high, medium or low. The *cautious figure* for time saved counts only the tasks where I was highly confident in my estimate and wrote it down within a week of the work.
+- **Which tasks are valued.** The weekly log started on 25 September 2026, and its first tasks date from 10 September. Every chart of hours, value types, quality or channels uses those tasks only. Work from June to early September is recorded in the log only as whole-week placeholders, rebuilt from project folders and git history, with no hours or assessment; it appears on this site only through measured usage.
+- **Logged at the time or later.** Values written down more than a week after the work are marked *backfilled* and kept out of the cautious figure.
+- **Usage data starts on 22 July 2026.** The agent writes a log of every session and deletes it after about 30 days. The logs were first collected on 8 September 2026, when this record began; by then, sessions before 22 July were gone, and sessions from 22 July to 8 August survive only if they were reopened later. Everything since 8 September is kept.
+- **Not in this report:** the text of my assessments, and the content of the work. Projects appear by code (gsma-a, gsma-b, …), and journal revisions show no detail.
+
+## What it does not show
+
+- **Costs.** This report is about labour productivity, not about whether the subscription pays for itself.
+- **The team.** One worker, who chose to use the tool, on tasks of my own choosing: the selection runs in the tool's favour.
+- **Effects on output.** Time saved is not the same as more or better research; what the saved time went into is not tracked yet.
+
+## The case against these results
+
+::: {.sceptic}
+**The strongest objections, and how far the log answers them.**
+
+1. **The counterfactual hours are guesses by an interested party.** True. They are estimates, made by the person who chose the tool. The log reduces the problem but cannot remove it: estimates are made at the time, with a confidence label, and a cautious figure is shown beside the total. A controlled comparison would be better evidence.
+2. **Time saved may be eaten by rework and checking.** Rework is logged separately and counted inside my hours, so the time-saved figures are already net of it. Checking time is included in hours with AI.
+3. **Expansion work may be work that should not have been done.** Some of it may be. Expansion tasks carry no time-saved figure for that reason, and their value rests on what they produce: systems the team now uses, and data that did not exist.
+4. **Quality is scored by the person who did the work.** Yes. Independent checks exist only inside the systems (second readers, expert reviews), not for the log as a whole.
+5. **One enthusiastic early user is not the team.** Agreed. This is a case study, useful for what it shows about where agents help and where they fail, not as an estimate of average effects.
+:::
+
+## How the log is kept honest
+
+- Every entry is validated by script against a schema before it is accepted; a week's import writes nothing unless every row passes.
+- The figures on this site are computed from the log by a script, not typed in.
+- Shortfalls and below-expectation outcomes are recorded as they happen and shown on the results page.
+- Corrections to an entry are added as dated updates; nothing is rewritten.

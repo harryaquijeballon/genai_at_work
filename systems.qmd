@@ -1,0 +1,138 @@
+---
+title: "Systems built"
+subtitle: "From single tasks to systems that run on their own"
+toc: true
+---
+
+::: {.page-intro}
+Part of the work went into building systems in which AI agents do work that would not otherwise be done: reading the research and the news every day, rebuilding historical data series, collecting evidence across dozens of countries, answering questions over an economic model. These systems are where most of the *new tasks* in the log come from. Their value depends on whether their output can be trusted, so each is built around feedback loops that check the agents' work.
+:::
+
+## The systems
+
+::: {.cards}
+::: {.card-box}
+[System]{.kind}
+
+#### Data-extraction pipeline
+
+Agents rebuild historical time series from archived web pages and documents, one year per agent, with every value quoted from its source and checked by an independent agent on a different model. Two pilots ran in September; the team approved scaling it up, one country first. Since November it runs on its own agent loop, ready for a wider scope.
+:::
+
+::: {.card-box}
+[System]{.kind}
+
+#### News radar for the team
+
+An unattended radar that reads public company reporting and the trade press every day, groups coverage into evidence-tiered stories and keeps them in a structured library. A topic expert reviews items through simple forms, and that feedback goes back into the system. Live since late October.
+:::
+
+::: {.card-box}
+[System]{.kind}
+
+#### Agentic policy simulator
+
+A chat interface over an existing economic model. Questions go to the deterministic model, which produces every figure; the language model only words the answer, and checks reject any figure the model did not produce. Built in June and July 2026.
+:::
+
+::: {.card-box}
+[System]{.kind}
+
+#### Research radar
+
+Two daily, unattended reviews of new work on AI in the social sciences and in AI engineering. Each development is verified, scored, de-duplicated and archived. Its library feeds the literature behind this report and the method used in the other systems.
+:::
+
+::: {.card-box}
+[Method]{.kind}
+
+#### Evidence log and playbook
+
+The log behind this site: one validated entry per task, built weekly from the agent's usage data and my judgements. It also collects each project's weekly lessons on building with agents into a knowledge base and a public playbook of rules for new projects.
+:::
+
+::: {.card-box}
+[Method]{.kind}
+
+#### Web search agents for empirical analysis
+
+In the MVNO wholesale access study, agents searched the web to build the treatment variable: MVNO access regulation, by type, for 30 European countries. They also found the market share of MVNOs across Europe. That meant going through hundreds of web pages from different countries, in different languages: work a person could do in principle, but that would not realistically have been done by hand.
+:::
+:::
+
+## Where the logged time went
+
+```{ojs}
+//| echo: false
+entries = FileAttachment("data/entries.json").json()
+sys = entries.filter(d => d.system !== "No system")
+Plot.plot({
+  marginLeft: 190, marginBottom: 45, height: 230, width: 720,
+  x: {label: "My hours (tasks with hours logged)", grid: true},
+  y: {label: null},
+  marks: [
+    Plot.barX(sys.filter(d => d.hours_actual !== null), Plot.groupY({x: "sum"}, {y: "system", x: "hours_actual", fill: "#008c95", sort: {y: "-x"}, tip: true})),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+::: {.chart-note}
+Build weeks logged afterwards with no hours are not counted, so the research radar and the analysis tool are understated.
+:::
+
+## How the systems are made trustworthy
+
+Trust comes from feedback loops, not from the model. The method is *feedback loop engineering* (D. Demmel): agents check their own work against real evidence, independent readers check it again, and every human correction becomes a rule or a check for the next run.
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart TB
+    rules["Before the work:<br/>schemas, written rules,<br/>restricted inputs"] --> agent["Agent does<br/>the work"]
+    agent --> fast["Fast check by script:<br/>every value quoted<br/>from its source"]
+    fast -->|errors back as plain text| agent
+    fast --> indep["Independent reading<br/>on another model"]
+    indep --> recon["Disagreements back<br/>to the agent as a to-do list"]
+    recon --> agent
+    recon -->|only what stays disputed| human["Human ruling<br/>and spot-check"]
+    human --> log["Every intervention<br/>logged"]
+    log -->|new rules and checks| rules
+```
+
+What the projects have taught so far is written down as they go. <span class="status measured">counted from the files</span>
+
+::: {.tiles}
+::: {.tile .teal}
+::: {.value}
+16
+:::
+::: {.label}
+weekly handovers from projects on what they learned about building with agents
+:::
+:::
+
+::: {.tile .teal}
+::: {.value}
+18
+:::
+::: {.label}
+patterns reached independently in two or more projects
+:::
+:::
+
+::: {.tile .teal}
+::: {.value}
+17 + 15
+:::
+::: {.label}
+core and candidate rules in the playbook for new projects
+:::
+:::
+:::
+
+Some of the lessons that recur:
+
+- **Judgement to the model, guarantees to code.** Anything that must always hold is enforced by a script the agent cannot change, never by an instruction.
+- **Check what is missing, not only what was recorded.** Two readers can agree perfectly on a dataset that is missing a whole category. A domain expert found one such gap in a few minutes; sensors for omissions followed.
+- **A failure must never look like an empty result.** An aborted step, a stale input or a cut-off file must stop the run loudly.
+- **Count with scripts, not memory.** Every figure in a report comes from a command.

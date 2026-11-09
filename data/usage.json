@@ -1,0 +1,1266 @@
+[
+ {
+  "date": "2026-07-22",
+  "project": "ai-radar",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 23,
+  "output_tokens": 17753
+ },
+ {
+  "date": "2026-07-28",
+  "project": "gsma-b",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 199,
+  "output_tokens": 207703
+ },
+ {
+  "date": "2026-07-29",
+  "project": "gsma-b",
+  "sessions": 1,
+  "human_turns": 13,
+  "tool_calls": 58,
+  "output_tokens": 89588
+ },
+ {
+  "date": "2026-07-30",
+  "project": "gsma-b",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 3,
+  "output_tokens": 14667
+ },
+ {
+  "date": "2026-07-31",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 111,
+  "output_tokens": 63202
+ },
+ {
+  "date": "2026-08-03",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 285,
+  "output_tokens": 194737
+ },
+ {
+  "date": "2026-08-04",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 0,
+  "output_tokens": 0
+ },
+ {
+  "date": "2026-08-05",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 20,
+  "tool_calls": 49,
+  "output_tokens": 116555
+ },
+ {
+  "date": "2026-08-06",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 24,
+  "tool_calls": 13,
+  "output_tokens": 70445
+ },
+ {
+  "date": "2026-08-07",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 17,
+  "tool_calls": 13,
+  "output_tokens": 57068
+ },
+ {
+  "date": "2026-08-12",
+  "project": "ai-radar",
+  "sessions": 1,
+  "human_turns": 28,
+  "tool_calls": 248,
+  "output_tokens": 170027
+ },
+ {
+  "date": "2026-08-12",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 0,
+  "output_tokens": 0
+ },
+ {
+  "date": "2026-08-13",
+  "project": "ai-radar",
+  "sessions": 1,
+  "human_turns": 9,
+  "tool_calls": 71,
+  "output_tokens": 40526
+ },
+ {
+  "date": "2026-08-13",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 9,
+  "tool_calls": 21,
+  "output_tokens": 25191
+ },
+ {
+  "date": "2026-08-14",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 0,
+  "output_tokens": 856
+ },
+ {
+  "date": "2026-08-17",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 31,
+  "tool_calls": 436,
+  "output_tokens": 266988
+ },
+ {
+  "date": "2026-08-18",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 22,
+  "tool_calls": 0,
+  "output_tokens": 30076
+ },
+ {
+  "date": "2026-08-19",
+  "project": "gsma-b",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 3,
+  "output_tokens": 5801
+ },
+ {
+  "date": "2026-08-19",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 13,
+  "tool_calls": 0,
+  "output_tokens": 12564
+ },
+ {
+  "date": "2026-08-20",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 9,
+  "tool_calls": 35,
+  "output_tokens": 52078
+ },
+ {
+  "date": "2026-08-21",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 50,
+  "tool_calls": 31,
+  "output_tokens": 121609
+ },
+ {
+  "date": "2026-08-24",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 0,
+  "output_tokens": 4640
+ },
+ {
+  "date": "2026-08-25",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 35,
+  "tool_calls": 26,
+  "output_tokens": 60173
+ },
+ {
+  "date": "2026-08-26",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 53,
+  "tool_calls": 4,
+  "output_tokens": 44204
+ },
+ {
+  "date": "2026-08-27",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 19,
+  "tool_calls": 4,
+  "output_tokens": 16140
+ },
+ {
+  "date": "2026-08-28",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 54,
+  "tool_calls": 26,
+  "output_tokens": 72442
+ },
+ {
+  "date": "2026-09-01",
+  "project": "ai-radar",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 27,
+  "output_tokens": 17602
+ },
+ {
+  "date": "2026-09-01",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 83,
+  "output_tokens": 64279
+ },
+ {
+  "date": "2026-09-01",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 0,
+  "output_tokens": 839
+ },
+ {
+  "date": "2026-09-02",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 8,
+  "output_tokens": 6082
+ },
+ {
+  "date": "2026-09-02",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 17,
+  "tool_calls": 7,
+  "output_tokens": 33887
+ },
+ {
+  "date": "2026-09-03",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 57,
+  "tool_calls": 7,
+  "output_tokens": 85874
+ },
+ {
+  "date": "2026-09-04",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 5,
+  "output_tokens": 7162
+ },
+ {
+  "date": "2026-09-04",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 60,
+  "tool_calls": 21,
+  "output_tokens": 70021
+ },
+ {
+  "date": "2026-09-07",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 16,
+  "tool_calls": 8,
+  "output_tokens": 16632
+ },
+ {
+  "date": "2026-09-07",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 17,
+  "tool_calls": 13,
+  "output_tokens": 17211
+ },
+ {
+  "date": "2026-09-07",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 19,
+  "tool_calls": 206,
+  "output_tokens": 171191
+ },
+ {
+  "date": "2026-09-08",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 28,
+  "tool_calls": 8,
+  "output_tokens": 20498
+ },
+ {
+  "date": "2026-09-08",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 16,
+  "tool_calls": 5,
+  "output_tokens": 16038
+ },
+ {
+  "date": "2026-09-08",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 9,
+  "tool_calls": 201,
+  "output_tokens": 290011
+ },
+ {
+  "date": "2026-09-09",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 7,
+  "tool_calls": 0,
+  "output_tokens": 6228
+ },
+ {
+  "date": "2026-09-09",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 26,
+  "tool_calls": 606,
+  "output_tokens": 370972
+ },
+ {
+  "date": "2026-09-10",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 56,
+  "tool_calls": 90,
+  "output_tokens": 116471
+ },
+ {
+  "date": "2026-09-10",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 11,
+  "output_tokens": 9928
+ },
+ {
+  "date": "2026-09-10",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 121,
+  "output_tokens": 67748
+ },
+ {
+  "date": "2026-09-11",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 15,
+  "output_tokens": 18261
+ },
+ {
+  "date": "2026-09-11",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 45,
+  "tool_calls": 16,
+  "output_tokens": 38425
+ },
+ {
+  "date": "2026-09-13",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 29,
+  "output_tokens": 47661
+ },
+ {
+  "date": "2026-09-13",
+  "project": "gsma-e",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 372,
+  "output_tokens": 237010
+ },
+ {
+  "date": "2026-09-14",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 19,
+  "tool_calls": 9,
+  "output_tokens": 18108
+ },
+ {
+  "date": "2026-09-14",
+  "project": "gsma-e",
+  "sessions": 1,
+  "human_turns": 57,
+  "tool_calls": 17,
+  "output_tokens": 47547
+ },
+ {
+  "date": "2026-09-15",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 16,
+  "tool_calls": 51,
+  "output_tokens": 101691
+ },
+ {
+  "date": "2026-09-15",
+  "project": "gsma-e",
+  "sessions": 1,
+  "human_turns": 19,
+  "tool_calls": 0,
+  "output_tokens": 13826
+ },
+ {
+  "date": "2026-09-16",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 9,
+  "output_tokens": 7135
+ },
+ {
+  "date": "2026-09-16",
+  "project": "gsma-e",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 4,
+  "output_tokens": 13129
+ },
+ {
+  "date": "2026-09-17",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 21,
+  "tool_calls": 54,
+  "output_tokens": 101035
+ },
+ {
+  "date": "2026-09-18",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 22,
+  "tool_calls": 46,
+  "output_tokens": 39239
+ },
+ {
+  "date": "2026-09-18",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 8,
+  "tool_calls": 22,
+  "output_tokens": 42853
+ },
+ {
+  "date": "2026-09-20",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 17,
+  "output_tokens": 12825
+ },
+ {
+  "date": "2026-09-21",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 5,
+  "output_tokens": 5790
+ },
+ {
+  "date": "2026-09-21",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 57,
+  "output_tokens": 39729
+ },
+ {
+  "date": "2026-09-21",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 11,
+  "output_tokens": 15867
+ },
+ {
+  "date": "2026-09-21",
+  "project": "gsma-e",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 7,
+  "output_tokens": 10719
+ },
+ {
+  "date": "2026-09-22",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 3,
+  "output_tokens": 3616
+ },
+ {
+  "date": "2026-09-22",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 9,
+  "output_tokens": 8166
+ },
+ {
+  "date": "2026-09-22",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 27,
+  "tool_calls": 50,
+  "output_tokens": 117416
+ },
+ {
+  "date": "2026-09-23",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 15,
+  "tool_calls": 4,
+  "output_tokens": 23683
+ },
+ {
+  "date": "2026-09-23",
+  "project": "gsma-d",
+  "sessions": 2,
+  "human_turns": 38,
+  "tool_calls": 54,
+  "output_tokens": 126620
+ },
+ {
+  "date": "2026-09-24",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 0,
+  "output_tokens": 1780
+ },
+ {
+  "date": "2026-09-24",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 8,
+  "tool_calls": 3,
+  "output_tokens": 17917
+ },
+ {
+  "date": "2026-09-24",
+  "project": "gsma-d",
+  "sessions": 2,
+  "human_turns": 57,
+  "tool_calls": 93,
+  "output_tokens": 118721
+ },
+ {
+  "date": "2026-09-25",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 15,
+  "tool_calls": 58,
+  "output_tokens": 61853
+ },
+ {
+  "date": "2026-09-25",
+  "project": "evidence-log",
+  "sessions": 2,
+  "human_turns": 19,
+  "tool_calls": 91,
+  "output_tokens": 95923
+ },
+ {
+  "date": "2026-09-28",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 0,
+  "output_tokens": 2119
+ },
+ {
+  "date": "2026-09-28",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 32,
+  "tool_calls": 1377,
+  "output_tokens": 792223
+ },
+ {
+  "date": "2026-09-29",
+  "project": "gsma-b",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 33,
+  "output_tokens": 21038
+ },
+ {
+  "date": "2026-09-29",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 45,
+  "output_tokens": 40017
+ },
+ {
+  "date": "2026-09-30",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 15,
+  "output_tokens": 6615
+ },
+ {
+  "date": "2026-09-30",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 11,
+  "output_tokens": 18029
+ },
+ {
+  "date": "2026-09-30",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 13,
+  "output_tokens": 13069
+ },
+ {
+  "date": "2026-09-30",
+  "project": "gsma-g",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 54,
+  "output_tokens": 36258
+ },
+ {
+  "date": "2026-10-01",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 97,
+  "output_tokens": 42940
+ },
+ {
+  "date": "2026-10-01",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 13,
+  "output_tokens": 10058
+ },
+ {
+  "date": "2026-10-01",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 17,
+  "output_tokens": 11219
+ },
+ {
+  "date": "2026-10-01",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 20,
+  "tool_calls": 613,
+  "output_tokens": 257488
+ },
+ {
+  "date": "2026-10-02",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 42,
+  "output_tokens": 21467
+ },
+ {
+  "date": "2026-10-02",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 12,
+  "tool_calls": 657,
+  "output_tokens": 121031
+ },
+ {
+  "date": "2026-10-02",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 1,
+  "output_tokens": 5011
+ },
+ {
+  "date": "2026-10-02",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 37,
+  "output_tokens": 58278
+ },
+ {
+  "date": "2026-10-02",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 3,
+  "output_tokens": 2232
+ },
+ {
+  "date": "2026-10-04",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 81,
+  "output_tokens": 57022
+ },
+ {
+  "date": "2026-10-05",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 23,
+  "tool_calls": 268,
+  "output_tokens": 160836
+ },
+ {
+  "date": "2026-10-05",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 12,
+  "tool_calls": 21,
+  "output_tokens": 49322
+ },
+ {
+  "date": "2026-10-06",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 15,
+  "tool_calls": 44,
+  "output_tokens": 80255
+ },
+ {
+  "date": "2026-10-06",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 30,
+  "tool_calls": 102,
+  "output_tokens": 130283
+ },
+ {
+  "date": "2026-10-06",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 29,
+  "tool_calls": 595,
+  "output_tokens": 124392
+ },
+ {
+  "date": "2026-10-07",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 30,
+  "tool_calls": 31,
+  "output_tokens": 80864
+ },
+ {
+  "date": "2026-10-07",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 25,
+  "tool_calls": 25,
+  "output_tokens": 63129
+ },
+ {
+  "date": "2026-10-07",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 26,
+  "tool_calls": 274,
+  "output_tokens": 64248
+ },
+ {
+  "date": "2026-10-08",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 7,
+  "tool_calls": 35,
+  "output_tokens": 50655
+ },
+ {
+  "date": "2026-10-08",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 62,
+  "tool_calls": 50,
+  "output_tokens": 97713
+ },
+ {
+  "date": "2026-10-09",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 35,
+  "output_tokens": 45439
+ },
+ {
+  "date": "2026-10-09",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 13,
+  "output_tokens": 14607
+ },
+ {
+  "date": "2026-10-09",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 1,
+  "output_tokens": 3398
+ },
+ {
+  "date": "2026-10-10",
+  "project": "gsma-d",
+  "sessions": 2,
+  "human_turns": 6,
+  "tool_calls": 16,
+  "output_tokens": 16962
+ },
+ {
+  "date": "2026-10-11",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 24,
+  "output_tokens": 31662
+ },
+ {
+  "date": "2026-10-11",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 2,
+  "output_tokens": 9056
+ },
+ {
+  "date": "2026-10-11",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 8,
+  "tool_calls": 66,
+  "output_tokens": 55297
+ },
+ {
+  "date": "2026-10-12",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 37,
+  "tool_calls": 108,
+  "output_tokens": 157811
+ },
+ {
+  "date": "2026-10-13",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 69,
+  "tool_calls": 83,
+  "output_tokens": 176945
+ },
+ {
+  "date": "2026-10-14",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 46,
+  "output_tokens": 44361
+ },
+ {
+  "date": "2026-10-14",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 14,
+  "tool_calls": 12,
+  "output_tokens": 25512
+ },
+ {
+  "date": "2026-10-14",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 21,
+  "tool_calls": 200,
+  "output_tokens": 129245
+ },
+ {
+  "date": "2026-10-14",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 26,
+  "output_tokens": 34693
+ },
+ {
+  "date": "2026-10-14",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 20,
+  "output_tokens": 29731
+ },
+ {
+  "date": "2026-10-15",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 75,
+  "tool_calls": 161,
+  "output_tokens": 120948
+ },
+ {
+  "date": "2026-10-16",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 24,
+  "tool_calls": 216,
+  "output_tokens": 120741
+ },
+ {
+  "date": "2026-10-16",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 2,
+  "output_tokens": 3524
+ },
+ {
+  "date": "2026-10-16",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 209,
+  "output_tokens": 157206
+ },
+ {
+  "date": "2026-10-18",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 10,
+  "tool_calls": 103,
+  "output_tokens": 93048
+ },
+ {
+  "date": "2026-10-19",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 6,
+  "output_tokens": 4727
+ },
+ {
+  "date": "2026-10-19",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 1,
+  "output_tokens": 773
+ },
+ {
+  "date": "2026-10-19",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 14,
+  "tool_calls": 16,
+  "output_tokens": 24426
+ },
+ {
+  "date": "2026-10-19",
+  "project": "gsma-f",
+  "sessions": 2,
+  "human_turns": 1,
+  "tool_calls": 85,
+  "output_tokens": 103159
+ },
+ {
+  "date": "2026-10-20",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 14,
+  "tool_calls": 5,
+  "output_tokens": 30284
+ },
+ {
+  "date": "2026-10-20",
+  "project": "gsma-d",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 0,
+  "output_tokens": 1427
+ },
+ {
+  "date": "2026-10-22",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 11,
+  "tool_calls": 15,
+  "output_tokens": 23592
+ },
+ {
+  "date": "2026-10-23",
+  "project": "gsma-d",
+  "sessions": 2,
+  "human_turns": 10,
+  "tool_calls": 8,
+  "output_tokens": 8289
+ },
+ {
+  "date": "2026-10-23",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 27,
+  "output_tokens": 23998
+ },
+ {
+  "date": "2026-10-26",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 11,
+  "tool_calls": 79,
+  "output_tokens": 73409
+ },
+ {
+  "date": "2026-10-26",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 24,
+  "tool_calls": 321,
+  "output_tokens": 323487
+ },
+ {
+  "date": "2026-10-26",
+  "project": "gsma-f",
+  "sessions": 2,
+  "human_turns": 69,
+  "tool_calls": 2731,
+  "output_tokens": 1982254
+ },
+ {
+  "date": "2026-10-27",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 21,
+  "tool_calls": 1021,
+  "output_tokens": 1278567
+ },
+ {
+  "date": "2026-10-27",
+  "project": "gsma-f",
+  "sessions": 2,
+  "human_turns": 11,
+  "tool_calls": 3563,
+  "output_tokens": 2534340
+ },
+ {
+  "date": "2026-10-28",
+  "project": "ai-radar-public",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 5,
+  "output_tokens": 11686
+ },
+ {
+  "date": "2026-10-28",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 4,
+  "tool_calls": 84,
+  "output_tokens": 44245
+ },
+ {
+  "date": "2026-10-28",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 5,
+  "tool_calls": 167,
+  "output_tokens": 138646
+ },
+ {
+  "date": "2026-10-28",
+  "project": "gsma-h",
+  "sessions": 1,
+  "human_turns": 14,
+  "tool_calls": 290,
+  "output_tokens": 365026
+ },
+ {
+  "date": "2026-10-29",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 7,
+  "tool_calls": 131,
+  "output_tokens": 94002
+ },
+ {
+  "date": "2026-10-29",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 17,
+  "tool_calls": 2315,
+  "output_tokens": 1490368
+ },
+ {
+  "date": "2026-10-29",
+  "project": "gsma-h",
+  "sessions": 1,
+  "human_turns": 16,
+  "tool_calls": 163,
+  "output_tokens": 189685
+ },
+ {
+  "date": "2026-10-30",
+  "project": "gsma-f",
+  "sessions": 2,
+  "human_turns": 58,
+  "tool_calls": 3919,
+  "output_tokens": 1979197
+ },
+ {
+  "date": "2026-10-30",
+  "project": "gsma-h",
+  "sessions": 1,
+  "human_turns": 6,
+  "tool_calls": 69,
+  "output_tokens": 42561
+ },
+ {
+  "date": "2026-11-01",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 3,
+  "tool_calls": 61,
+  "output_tokens": 61672
+ },
+ {
+  "date": "2026-11-02",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 11,
+  "tool_calls": 72,
+  "output_tokens": 75775
+ },
+ {
+  "date": "2026-11-02",
+  "project": "gsma-h",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 48,
+  "output_tokens": 39831
+ },
+ {
+  "date": "2026-11-03",
+  "project": "gsma-c",
+  "sessions": 2,
+  "human_turns": 40,
+  "tool_calls": 30,
+  "output_tokens": 82987
+ },
+ {
+  "date": "2026-11-03",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 29,
+  "tool_calls": 687,
+  "output_tokens": 469623
+ },
+ {
+  "date": "2026-11-04",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 2,
+  "tool_calls": 21,
+  "output_tokens": 29894
+ },
+ {
+  "date": "2026-11-04",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 12,
+  "tool_calls": 31,
+  "output_tokens": 49942
+ },
+ {
+  "date": "2026-11-04",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 15,
+  "tool_calls": 118,
+  "output_tokens": 238134
+ },
+ {
+  "date": "2026-11-05",
+  "project": "gsma-a",
+  "sessions": 2,
+  "human_turns": 7,
+  "tool_calls": 120,
+  "output_tokens": 91030
+ },
+ {
+  "date": "2026-11-05",
+  "project": "gsma-c",
+  "sessions": 1,
+  "human_turns": 28,
+  "tool_calls": 890,
+  "output_tokens": 629068
+ },
+ {
+  "date": "2026-11-05",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 16,
+  "output_tokens": 27957
+ },
+ {
+  "date": "2026-11-05",
+  "project": "gsma-g",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 251,
+  "output_tokens": 275186
+ },
+ {
+  "date": "2026-11-06",
+  "project": "gsma-a",
+  "sessions": 1,
+  "human_turns": 7,
+  "tool_calls": 33,
+  "output_tokens": 29723
+ },
+ {
+  "date": "2026-11-06",
+  "project": "gsma-f",
+  "sessions": 1,
+  "human_turns": 8,
+  "tool_calls": 41,
+  "output_tokens": 54377
+ },
+ {
+  "date": "2026-11-08",
+  "project": "evidence-log",
+  "sessions": 1,
+  "human_turns": 1,
+  "tool_calls": 1,
+  "output_tokens": 441
+ }
+]

@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "locale": "en_GB",
+  "platform": "4.6.2",
+  "metadata": {
+    "appmode": "quarto-static",
+    "primary_rmd": "index.qmd",
+    "primary_html": null,
+    "content_category": null,
+    "has_parameters": false
+  },
+  "quarto": {
+    "version": "1.10.18",
+    "engines": ["markdown"]
+  },
+  "packages": null,
+  "files": {
+    "_quarto.yml": {
+      "checksum": "d8d31eeb88733164d820e7fa7adc5263"
+    },
+    "_site/data/entries.json": {
+      "checksum": "7cd875763b7007a69d9d94f50d9d323e"
+    },
+    "_site/data/summary.json": {
+      "checksum": "7bb7915e1ff8393902b1fc4244b50742"
+    },
+    "_site/data/usage.json": {
+      "checksum": "c1ffcf406ac6ad5a079386af1eac51a4"
+    },
+    "_site/index.html": {
+      "checksum": "d6c6a60cb39fac48d00185af6e2d8c3f"
+    },
+    "_site/lens.html": {
+      "checksum": "54ff44392ab531a2ccfcbe85ab9545f3"
+    },
+    "_site/method.html": {
+      "checksum": "351a4a0fd2a5e40a58d5f3999426c79d"
+    },
+    "_site/results.html": {
+      "checksum": "28aa303076451593e853238e2dcb8d9b"
+    },
+    "_site/search.json": {
+      "checksum": "a2f93ac2e63589a2f975972e7d46c972"
+    },
+    "_site/site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css": {
+      "checksum": "445b8638c3d06994fee0907d791121c4"
+    },
+    "_site/site_libs/bootstrap/bootstrap-icons.css": {
+      "checksum": "886da841d7421705f715f600c5ff11bb"
+    },
+    "_site/site_libs/bootstrap/bootstrap-icons.woff": {
+      "checksum": "efe54401ef52214fd3b701e23ff88c5f"
+    },
+    "_site/site_libs/bootstrap/bootstrap.min.js": {
+      "checksum": "e2b09c06f0e714b6144a6788a28e3950"
+    },
+    "_site/site_libs/clipboard/clipboard.min.js": {
+      "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
+    },
+    "_site/site_libs/quarto-diagram/mermaid-init.js": {
+      "checksum": "35cf34474c6b3cb3e659633a985a71cd"
+    },
+    "_site/site_libs/quarto-diagram/mermaid.css": {
+      "checksum": "0aeecd8a816e25e43a41943c6146c2b7"
+    },
+    "_site/site_libs/quarto-diagram/mermaid.min.js": {
+      "checksum": "b083b6bcb3a68ca7b61312fef800366f"
+    },
+    "_site/site_libs/quarto-html/anchor.min.js": {
+      "checksum": "91bcf6cd1fd88fec3f109811e5fc3546"
+    },
+    "_site/site_libs/quarto-html/popper.min.js": {
+      "checksum": "3a4a291ccf3f1ea0f82b641542fd3827"
+    },
+    "_site/site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css": {
+      "checksum": "64a204ab8560d761af7679ceaba22944"
+    },
+    "_site/site_libs/quarto-html/quarto.js": {
+      "checksum": "6f4245742deb3cc92337dbe2701ccfe1"
+    },
+    "_site/site_libs/quarto-html/tabsets/tabsets.js": {
+      "checksum": "e8d6a8862b33ccc461f8fd532e05b365"
+    },
+    "_site/site_libs/quarto-html/tippy.css": {
+      "checksum": "ebd6f8ce46a677e1a4f5f8a8317109a9"
+    },
+    "_site/site_libs/quarto-html/tippy.umd.min.js": {
+      "checksum": "d828775275749701b48bd9d958814111"
+    },
+    "_site/site_libs/quarto-html/zenscroll-min.js": {
+      "checksum": "717c95813ddfc3d41e98c26642fc1372"
+    },
+    "_site/site_libs/quarto-nav/headroom.min.js": {
+      "checksum": "ace0360e576db9b6e7df48ac68ddbbf4"
+    },
+    "_site/site_libs/quarto-nav/quarto-nav.js": {
+      "checksum": "7a5e071ef61780ababf038b90a7ce7cd"
+    },
+    "_site/site_libs/quarto-ojs/quarto-ojs-runtime.js": {
+      "checksum": "18a7c9f39c1a1b82b4f0b1c72d5f6c0d"
+    },
+    "_site/site_libs/quarto-ojs/quarto-ojs.css": {
+      "checksum": "8645f556f692a33c4645eeb25d3d4122"
+    },
+    "_site/site_libs/quarto-search/autocomplete.umd.js": {
+      "checksum": "b514204f2ef1ca7a8e2ad4579d263504"
+    },
+    "_site/site_libs/quarto-search/fuse.min.js": {
+      "checksum": "de7d60e4a6881074275feca14b84a49d"
+    },
+    "_site/site_libs/quarto-search/quarto-search.js": {
+      "checksum": "9c992af743ca88c8c5f650cf312c4e61"
+    },
+    "_site/styles.css": {
+      "checksum": "1192c5054f768a3f4de5e405cdde5742"
+    },
+    "_site/systems.html": {
+      "checksum": "49236e838e1a005ffe8fcf8e9189eee0"
+    },
+    "data/entries.json": {
+      "checksum": "7cd875763b7007a69d9d94f50d9d323e"
+    },
+    "data/summary.json": {
+      "checksum": "7bb7915e1ff8393902b1fc4244b50742"
+    },
+    "data/usage.json": {
+      "checksum": "c1ffcf406ac6ad5a079386af1eac51a4"
+    },
+    "index.qmd": {
+      "checksum": "698b35eed9e24a25764cd92d7bbcb2da"
+    },
+    "lens.qmd": {
+      "checksum": "30153a2b691e1d6d321f683435e5e241"
+    },
+    "method.qmd": {
+      "checksum": "6f3bcce793758190886307ee98c6ca2b"
+    },
+    "results.qmd": {
+      "checksum": "190c4c257e7dac52c0b07e60cf204338"
+    },
+    "styles.css": {
+      "checksum": "1192c5054f768a3f4de5e405cdde5742"
+    },
+    "systems.qmd": {
+      "checksum": "fe40cb0d35cfd8b4185e7c99f58e9d88"
+    }
+  },
+  "users": null
+}
