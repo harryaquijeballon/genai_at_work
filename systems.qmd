@@ -67,8 +67,8 @@ In the MVNO wholesale access study, agents searched the web to build the treatme
 entries = FileAttachment("data/entries.json").json()
 sys = entries.filter(d => d.system !== "No system")
 Plot.plot({
-  marginLeft: 190, marginBottom: 45, height: 230, width: 720,
-  x: {label: "My hours (tasks with hours logged)", grid: true},
+  marginLeft: 190, marginTop: 45, marginBottom: 10, height: 240, width: 720,
+  x: {axis: "top", label: "My hours (tasks with hours logged)", grid: true},
   y: {label: null},
   marks: [
     Plot.barX(sys.filter(d => d.hours_actual !== null), Plot.groupY({x: "sum"}, {y: "system", x: "hours_actual", fill: "#008c95", sort: {y: "-x"}, tip: true})),
@@ -78,7 +78,7 @@ Plot.plot({
 ```
 
 ::: {.chart-note}
-Build weeks logged afterwards with no hours are not counted, so the research radar and the analysis tool are understated.
+Build weeks logged afterwards with no hours are not counted, so the research radar and the Agentic policy simulator are understated.
 :::
 
 ## How the systems are made trustworthy

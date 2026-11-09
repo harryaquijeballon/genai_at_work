@@ -207,7 +207,7 @@
     "href": "systems.html#where-the-logged-time-went",
     "title": "Systems built",
     "section": "Where the logged time went",
-    "text": "Where the logged time went\n\nentries = FileAttachment(\"data/entries.json\").json()\nsys = entries.filter(d =&gt; d.system !== \"No system\")\nPlot.plot({\n  marginLeft: 190, marginBottom: 45, height: 230, width: 720,\n  x: {label: \"My hours (tasks with hours logged)\", grid: true},\n  y: {label: null},\n  marks: [\n    Plot.barX(sys.filter(d =&gt; d.hours_actual !== null), Plot.groupY({x: \"sum\"}, {y: \"system\", x: \"hours_actual\", fill: \"#008c95\", sort: {y: \"-x\"}, tip: true})),\n    Plot.ruleX([0])\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuild weeks logged afterwards with no hours are not counted, so the research radar and the analysis tool are understated."
+    "text": "Where the logged time went\n\nentries = FileAttachment(\"data/entries.json\").json()\nsys = entries.filter(d =&gt; d.system !== \"No system\")\nPlot.plot({\n  marginLeft: 190, marginTop: 45, marginBottom: 10, height: 240, width: 720,\n  x: {axis: \"top\", label: \"My hours (tasks with hours logged)\", grid: true},\n  y: {label: null},\n  marks: [\n    Plot.barX(sys.filter(d =&gt; d.hours_actual !== null), Plot.groupY({x: \"sum\"}, {y: \"system\", x: \"hours_actual\", fill: \"#008c95\", sort: {y: \"-x\"}, tip: true})),\n    Plot.ruleX([0])\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuild weeks logged afterwards with no hours are not counted, so the research radar and the Agentic policy simulator are understated."
   },
   {
     "objectID": "systems.html#how-the-systems-are-made-trustworthy",
